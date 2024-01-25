@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { Home, Signin, Signup, Profile, Page404, Checkout } from '../pages';
+import { Home, Signin, Signup, Profile, Page404, Checkout, CreateAddress, EditProfile, Order, Wishlist } from '../pages';
 import '../styles/App.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -15,6 +15,10 @@ function App() {
       <Route exact path="/users/signup" element={<Signup />} />
       <Route exact path="/checkout" element={<Checkout />} />
       <Route exact path="/users" element={<Profile />} />
+      <Route exact path="/users/addresses" element={<CreateAddress />} />
+      <Route exact path="/users/edit" element={<EditProfile />} />
+      <Route exact path="/users/orders" element={<Order />} />
+      <Route exact path="/users/wishlist" element={<Wishlist />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
     <ToastContainer position="top-right"

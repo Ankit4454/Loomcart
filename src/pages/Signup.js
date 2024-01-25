@@ -112,7 +112,7 @@ function Signup() {
                   className="peer w-full px-0.5 border-0 bg-lime-50 border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                   placeholder="willPig@tailwind.com" required />
                 <label htmlFor="mobileNumber"
-                  className="absolute left-0 -top-4 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-focus:-top-4 peer-focus:text-teal-700 peer-focus:text-sm">Phone number</label>
+                  className="absolute left-0 -top-4 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-focus:-top-4 peer-focus:text-teal-700 peer-focus:text-sm">Mobile number</label>
               </div>
               <div className="mt-10 relative">
                 <input id="password" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}

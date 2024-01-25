@@ -18,8 +18,7 @@ export const useProvideAuth = () => {
             const userToken = getItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
             if (userToken) {
                 const user = jwtDecode(userToken);
-
-                setUser(user);
+                setUser(user.user);
             }
             setLoading(false);
         }

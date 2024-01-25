@@ -34,7 +34,7 @@ function Navbar() {
               Category<PiCaretDownThin className="text-gray-500 ml-2" />
             </span>
             {isCategoryOpen && (
-              <div className="absolute z-10 bg-white py-2 shadow-md rounded-xl">
+              <div className="absolute z-10 bg-white py-2 shadow-md w-full rounded-xl">
                 <Link
                   className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
                   to="/category/kids"
@@ -57,7 +57,6 @@ function Navbar() {
             )}
           </li>
         </ul>
-        {/* <li className="flex items-end cursor-pointer"><Link className="text-sm text-teal-800 font-bold navbar-link" to="/">Category</Link><PiCaretDownThin className="text-gray-500 ml-2" /></li> */}
         <li className="text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill"
             viewBox="0 0 24 24">
@@ -102,7 +101,7 @@ function Navbar() {
         onMouseLeave={() => setAccountOpen(false)}>
         <IoPersonOutline className="mr-2" size={20} /> Account
         {isAccountOpen && (
-          <div className="absolute top-9 z-10 bg-white py-2 shadow-md rounded-xl">
+          <div className="absolute top-9 left-0 z-10 bg-white py-2 shadow-md w-full rounded-xl">
             {!auth.user && <Link
               className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
               to="/users/signin"
@@ -121,12 +120,12 @@ function Navbar() {
             >
               {auth.user.name}
             </Link>}
-            {auth.user && <button
-              className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+            {auth.user && <div
+              className="block px-4 cursor-pointer py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
               onClick={auth.logout}
             >
               Logout
-            </button>}
+            </div>}
           </div>
         )}
       </div>
@@ -135,11 +134,6 @@ function Navbar() {
         <span className="absolute bg-gray-900 text-gray-100 px-2 py-1 text-xs font-bold rounded-full -top-3 -right-2">2</span>
         Cart
       </Link>
-
-      {/* <button onClick={auth.logout} className="hidden relative lg:flex lg:items-center py-2 px-6 bg-teal-700 hover:bg-teal-800 text-sm text-white font-bold rounded-3xl transition duration-200"><MdOutlineAddShoppingCart className="mr-2" size={20} />
-        <span className="absolute bg-gray-900 text-gray-100 px-2 py-1 text-xs font-bold rounded-full -top-3 -right-2">2</span>
-        Logout
-      </button> */}
     </nav>
     <div className="navbar-menu relative z-50 hidden">
       <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25" onClick={handleBurgerClick}></div>
@@ -158,9 +152,35 @@ function Navbar() {
         </div>
         <div>
           <ul>
-            <li className="mb-1">
-              <Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-teal-50 hover:text-teal-800 rounded"
-                to="/">Category</Link>
+            <li
+              className="relative group cursor-pointer mb-1"
+              onClick={() => isCategoryOpen ? setCategoryOpen(false) : setCategoryOpen(true)}
+            >
+              <Link className="flex items-center p-4 text-sm font-semibold text-gray-400 hover:bg-teal-50 hover:text-teal-800 rounded">
+                Category<PiCaretDownThin className="text-gray-500 ml-2" />
+              </Link>
+              {isCategoryOpen && (
+                <div className="absolute z-10 bg-white py-2 shadow-md w-full rounded-xl">
+                  <Link
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+                    to="/category/kids"
+                  >
+                    Kids
+                  </Link>
+                  <Link
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+                    to="/category/man"
+                  >
+                    Man
+                  </Link>
+                  <Link
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+                    to="/category/women"
+                  >
+                    Women
+                  </Link>
+                </div>
+              )}
             </li>
             <li className="mb-1">
               <Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-teal-50 hover:text-teal-800 rounded"
@@ -178,8 +198,39 @@ function Navbar() {
         </div>
         <div className="mt-auto">
           <div className="pt-6">
-            <Link className="flex items-center justify-center px-4 py-3 mb-3 leading-loose text-xs font-semibold leading-none bg-gray-100 hover:bg-gray-200 rounded-3xl"
-              to="/users/signin"><IoPersonOutline className="mr-2" size={20} /> Account</Link>
+            <div className="flex items-center relative group cursor-pointer justify-center px-4 py-3 mb-3 leading-loose text-xs font-semibold leading-none bg-gray-100 hover:bg-gray-200 rounded-3xl"
+              to="/users/signin"
+              onClick={() => isAccountOpen ? setAccountOpen(false) : setAccountOpen(true)}>
+              <IoPersonOutline className="mr-2" size={20} /> Account
+              {isAccountOpen && (
+                <div className="absolute top-10 z-10 bg-white py-2 shadow-md w-full rounded-xl">
+                  {!auth.user && <Link
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+                    to="/users/signin"
+                  >
+                    Login
+                  </Link>}
+                  {!auth.user && <Link
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+                    to="/users/signup"
+                  >
+                    Sign Up
+                  </Link>}
+                  {auth.user && <Link
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+                    to="/users"
+                  >
+                    {auth.user.name}
+                  </Link>}
+                  {auth.user && <div
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+                    onClick={auth.logout}
+                  >
+                    Logout
+                  </div>}
+                </div>
+              )}
+            </div>
             <Link className="flex items-center justify-center px-4 py-3 mb-2 leading-loose text-xs text-white font-semibold bg-teal-700 hover:bg-teal-800 rounded-3xl"
               to="/users/signup"><MdOutlineAddShoppingCart className="mr-2" size={20} /> Cart</Link>
           </div>
