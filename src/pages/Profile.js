@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProfileCard from '../components/ProfileCard';
 import { FcInTransit } from "react-icons/fc";
 import { FcPrivacy } from "react-icons/fc";
 import { FcAddressBook } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../hooks";
 
 function Profile() {
+  const auth = useAuth();
+  const navigate = useNavigate();
   const cards = [
     {
       id: 1,
@@ -36,6 +40,12 @@ function Profile() {
       icon: <FcLike size={48} />
     }
   ];
+
+  useEffect(() => {
+    if (!auth.user) {
+      navigate('/');
+    }
+  }, [auth.user, navigate]);
 
   return (
     <div className="relative min-h-screen bg-lime-50 backdrop-blur flex flex-col items-start bg-texture bg-cover px-10 sm:py-0">

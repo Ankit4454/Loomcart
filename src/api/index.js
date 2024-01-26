@@ -1,13 +1,14 @@
 import { API_URLS, LOCALSTORAGE_TOKEN_KEY, getFormBody } from "../utils";
 
 const customFetch = async (url, { body, ...customConfig }) => {
-  const token = window.localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
+  let token = window.localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
 
   const headers = {
     "content-type": "application/x-www-form-urlencoded",
   };
 
   if (token) {
+    token = token.replaceAll('"', '');
     headers.Authorization = `Bearer ${token}`;
   }
 
@@ -62,11 +63,11 @@ export const login = (emailOrMobileNumber, password) => {
   });
 };
 
-export const editUser = async (id, name, email) => {
-  return customFetch(API_URLS.editUser(), {
+export const editUser = async (id, name, email, mobileNumber) => {
+  return customFetch(API_URLS.updateUser(), {
     method: 'POST',
     body: {
-      id, name, email
+      id, name, email, mobileNumber
     }
   });
 };

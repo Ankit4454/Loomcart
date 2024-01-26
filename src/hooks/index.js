@@ -73,14 +73,14 @@ export const useProvideAuth = () => {
         });
     }
 
-    const updateUser = async (id, name, email) => {
-        const response = await editUser(id, name, email);
-
+    const updateUser = async (id, name, email, mobileNumber) => {
+        const response = await editUser(id, name, email, mobileNumber);
         if (response.success) {
             setUser(response.data.user);
             setItemInLocalStorage(LOCALSTORAGE_TOKEN_KEY, response.data.token ? response.data.token : null);
             return {
-                success: true
+                success: true,
+                message: response.message
             };
         } else {
             return {
