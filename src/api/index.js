@@ -72,3 +72,38 @@ export const editUser = async (id, name, email, mobileNumber) => {
   });
 };
 
+export const createAddress = async (user, name, mobileNumber, pincode, addressLine1, addressLine2, landmark, city, state, addressType) => {
+  return customFetch(API_URLS.createAddress(), {
+    method: 'POST',
+    body: {
+      user, name, mobileNumber, pincode, addressLine1, addressLine2, landmark, city, state, addressType
+    }
+  });
+};
+
+export const updateAddress = async (addressId, name, mobileNumber, pincode, addressLine1, addressLine2, landmark, city, state, addressType) => {
+  return customFetch(API_URLS.updateAddress(), {
+    method: 'POST',
+    body: {
+      id: addressId, name, mobileNumber, pincode, addressLine1, addressLine2, landmark, city, state, addressType
+    }
+  });
+};
+
+export const deleteAddress = async (addressId) => {
+  return customFetch(API_URLS.deleteAddress(addressId), {
+    method: 'GET'
+  });
+};
+
+export const getAddressList = (userId) => {
+  return customFetch(API_URLS.getAddressList(userId), {
+    method: 'GET'
+  });
+};
+
+export const getAddress = (addressId) => {
+  return customFetch(API_URLS.getAddress(addressId), {
+    method: 'GET'
+  });
+};

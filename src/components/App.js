@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { Home, Signin, Signup, Profile, Page404, Checkout, CreateAddress, EditProfile, Order, Wishlist } from '../pages';
+import { Home, Signin, Signup, Profile, Page404, Checkout, Address, EditProfile, Order, Wishlist, EditAddress } from '../pages';
 import '../styles/App.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -15,22 +15,23 @@ function App() {
       <Route exact path="/users/signup" element={<Signup />} />
       <Route exact path="/checkout" element={<Checkout />} />
       <Route exact path="/users" element={<Profile />} />
-      <Route exact path="/users/addresses" element={<CreateAddress />} />
+      <Route exact path="/users/addresses" element={<Address />} />
+      <Route path="/users/addresses/edit/:id?" element={<EditAddress />} />
       <Route exact path="/users/edit" element={<EditProfile />} />
       <Route exact path="/users/orders" element={<Order />} />
       <Route exact path="/users/wishlist" element={<Wishlist />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
     <ToastContainer position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light" />
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light" />
     <Footer />
   </>
   );

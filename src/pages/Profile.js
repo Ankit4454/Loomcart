@@ -48,7 +48,7 @@ function Profile() {
   }, [auth.user, navigate]);
 
   return (
-    <div className="relative min-h-screen bg-lime-50 backdrop-blur flex flex-col items-start bg-texture bg-cover px-10 sm:py-0">
+    <div className="relative min-h-screen bg-white backdrop-blur flex flex-col items-start bg-texture bg-cover px-10 sm:py-0">
       <h1 className="text-4xl text-gray-800">Your Account</h1>
       <div className="relative w-full flex flex-wrap items-start justify-between">
         {cards.map((card) => (
