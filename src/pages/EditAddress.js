@@ -90,7 +90,7 @@ function EditAddress() {
                         const response = await getAddress(id);
                         if (response.success) {
                             const address = response.data.address;
-                            setAddressId(address._id)
+                            setAddressId(address._id);
                             setName(address.name);
                             setMobileNumber(address.mobileNumber);
                             setPincode(address.pincode);

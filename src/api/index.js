@@ -3,9 +3,7 @@ import { API_URLS, LOCALSTORAGE_TOKEN_KEY, getFormBody } from "../utils";
 const customFetch = async (url, { body, ...customConfig }) => {
   let token = window.localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
 
-  const headers = {
-    "content-type": "application/x-www-form-urlencoded",
-  };
+  const headers = {};
 
   if (token) {
     token = token.replaceAll('"', '');
@@ -20,8 +18,11 @@ const customFetch = async (url, { body, ...customConfig }) => {
     },
   };
 
-  if (body) {
+  if (body instanceof FormData) {
+    config.body = body;
+  } else if (body) {
     config.body = getFormBody(body);
+    config.headers['content-type'] = 'application/x-www-form-urlencoded';
   }
 
   try {
@@ -104,6 +105,54 @@ export const getAddressList = (userId) => {
 
 export const getAddress = (addressId) => {
   return customFetch(API_URLS.getAddress(addressId), {
+    method: 'GET'
+  });
+};
+
+export const createProduct = async (user, name, description, price, category, picture) => {
+  const formData = new FormData();
+  formData.append('user', user);
+  formData.append('name', name);
+  formData.append('description', description);
+  formData.append('price', price);
+  formData.append('category', category);
+  formData.append('picture', picture);
+
+  return customFetch(API_URLS.createProduct(), {
+    method: 'POST',
+    body: formData
+  });
+};
+
+export const updateProduct = async (productId, name, description, price, category, picture) => {
+  const formData = new FormData();
+  formData.append('id', productId);
+  formData.append('name', name);
+  formData.append('description', description);
+  formData.append('price', price);
+  formData.append('category', category);
+  formData.append('picture', picture);
+
+  return customFetch(API_URLS.updateProduct(), {
+    method: 'POST',
+    body: formData
+  });
+};
+
+export const deleteProduct = async (productId) => {
+  return customFetch(API_URLS.deleteProduct(productId), {
+    method: 'GET'
+  });
+};
+
+export const getUserProducts = (userId) => {
+  return customFetch(API_URLS.getUserProducts(userId), {
+    method: 'GET'
+  });
+};
+
+export const getProduct = (productId) => {
+  return customFetch(API_URLS.getProduct(productId), {
     method: 'GET'
   });
 };

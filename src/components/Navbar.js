@@ -9,6 +9,25 @@ function Navbar() {
   const auth = useAuth();
   const [isCategoryOpen, setCategoryOpen] = useState(false);
   const [isAccountOpen, setAccountOpen] = useState(false);
+  const categoryOptions = [
+    { optValue: 'Electronics', optText: 'Electronics' },
+    { optValue: 'Fashion', optText: 'Fashion' },
+    { optValue: 'Home and Furniture', optText: 'Home and Furniture' },
+    { optValue: 'Beauty and Personal Care', optText: 'Beauty and Personal Care' },
+    { optValue: 'Sports and Outdoors', optText: 'Sports and Outdoors' },
+    { optValue: 'Books and Stationery', optText: 'Books and Stationery' },
+    { optValue: 'Toys and Games', optText: 'Toys and Games' },
+    { optValue: 'Health and Wellness', optText: 'Health and Wellness' },
+    { optValue: 'Automotive', optText: 'Automotive' },
+    { optValue: 'Electrical Appliances', optText: 'Electrical Appliances' },
+    { optValue: 'Jewelry and Watches', optText: 'Jewelry and Watches' },
+    { optValue: 'Food and Groceries', optText: 'Food and Groceries' },
+    { optValue: 'Pet Supplies', optText: 'Pet Supplies' },
+    { optValue: 'Art and Craft Supplies', optText: 'Art and Craft Supplies' },
+    { optValue: 'Garden and Outdoor Living', optText: 'Garden and Outdoor Living' },
+    { optValue: 'Travel and Luggage', optText: 'Travel and Luggage' },
+    { optValue: 'Fitness and Sports Equipment', optText: 'Fitness and Sports Equipment' }
+  ];
 
   const handleBurgerClick = () => {
     const menu = document.querySelectorAll('.navbar-menu');
@@ -23,8 +42,8 @@ function Navbar() {
         loomcart
       </Link>
       <ul
-        className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-2">
-        <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-2">
+        className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+        <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
           <li
             className="relative group cursor-pointer"
             onMouseEnter={() => setCategoryOpen(true)}
@@ -34,25 +53,15 @@ function Navbar() {
               Category<PiCaretDownThin className="text-gray-500 ml-2" />
             </span>
             {isCategoryOpen && (
-              <div className="absolute z-10 bg-white py-2 shadow-md w-full rounded-xl">
-                <Link
-                  className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
-                  to="/category/kids"
-                >
-                  Kids
-                </Link>
-                <Link
-                  className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
-                  to="/category/man"
-                >
-                  Man
-                </Link>
-                <Link
-                  className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
-                  to="/category/women"
-                >
-                  Women
-                </Link>
+              <div className="absolute z-10 bg-white py-2 shadow-md w-max max-w-md rounded-xl">
+                {categoryOptions.map((cat) => (
+                  <Link
+                    className="block w-full px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800 whitespace-nowrap"
+                    to={"/category/" + cat.optValue}
+                  >
+                    {cat.optValue}
+                  </Link>
+                ))}
               </div>
             )}
           </li>
@@ -73,14 +82,6 @@ function Navbar() {
           </svg>
         </li>
         <li><Link className="text-sm text-gray-400 hover:text-gray-500 navbar-link" to="/services">What's New</Link></li>
-        <li className="text-gray-300">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill"
-            viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-          </svg>
-        </li>
-        <li><Link className="text-sm text-gray-400 hover:text-gray-500 navbar-link" to="/contact">Delivery</Link></li>
       </ul>
       <div className="rounded-3xl bg-gray-200 overflow-hidden mx-4 flex lg:w-1/4 md:w-1/3">
         <input type="text" className="px-4 py-2 bg-gray-200 w-full outline-none" placeholder="Search Product" />
@@ -161,24 +162,14 @@ function Navbar() {
               </Link>
               {isCategoryOpen && (
                 <div className="absolute z-10 bg-white py-2 shadow-md w-full rounded-xl">
-                  <Link
-                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
-                    to="/category/kids"
-                  >
-                    Kids
-                  </Link>
-                  <Link
-                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
-                    to="/category/man"
-                  >
-                    Man
-                  </Link>
-                  <Link
-                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
-                    to="/category/women"
-                  >
-                    Women
-                  </Link>
+                  {categoryOptions.map((cat) => (
+                    <Link
+                      className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
+                      to={"/category/kids/" + cat.optValue}
+                    >
+                      {cat.optText}
+                    </Link>
+                  ))}
                 </div>
               )}
             </li>
@@ -189,10 +180,6 @@ function Navbar() {
             <li className="mb-1">
               <Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-teal-50 hover:text-teal-800 rounded"
                 to="/services">What's New</Link>
-            </li>
-            <li className="mb-1">
-              <Link className="block p-4 text-sm font-semibold text-gray-400 hover:bg-teal-50 hover:text-teal-800 rounded"
-                to="/contact">Delivery</Link>
             </li>
           </ul>
         </div>

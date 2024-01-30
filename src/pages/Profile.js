@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import ProfileCard from '../components/ProfileCard';
-import { FcInTransit } from "react-icons/fc";
-import { FcPrivacy } from "react-icons/fc";
-import { FcAddressBook } from "react-icons/fc";
-import { FcLike } from "react-icons/fc";
+import { FcInTransit, FcPrivacy, FcAddressBook, FcWorkflow, FcLike } from "react-icons/fc";
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../hooks";
 
@@ -38,6 +35,13 @@ function Profile() {
       info: 'Edit wishlist, or buy things',
       link: '/users/wishlist',
       icon: <FcLike size={48} />
+    },
+    {
+      id: 5,
+      heading: 'Your Products',
+      info: 'Manage and edit your products',
+      link: '/users/product',
+      icon: <FcWorkflow size={48} />
     }
   ];
 
