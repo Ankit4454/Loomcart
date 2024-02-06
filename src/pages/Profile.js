@@ -53,7 +53,7 @@ function Profile() {
 
   return (
     <div className="relative min-h-screen bg-white backdrop-blur flex flex-col items-start bg-texture bg-cover px-10 sm:py-0">
-      <h1 className="text-4xl text-gray-800">Your Account</h1>
+      <h1 className="text-3xl text-gray-800">Your Account</h1>
       <div className="relative w-full flex flex-wrap items-start justify-between">
         {cards.map((card) => (
           <ProfileCard key={card.id} card={card} />

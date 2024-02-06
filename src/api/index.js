@@ -156,3 +156,45 @@ export const getProduct = (productId) => {
     method: 'GET'
   });
 };
+
+export const getAllProducts = () => {
+  return customFetch(API_URLS.products(), {
+    method: 'GET'
+  });
+};
+
+export const getSearchResult = (string) => {
+  return customFetch(API_URLS.searchProducts(string), {
+    method: 'GET'
+  });
+};
+
+export const filterCategoryProducts = (string) => {
+  return customFetch(API_URLS.categoryProducts(string), {
+    method: 'GET'
+  });
+};
+
+export const createRating = async (userId, productId, star, review) => {
+  return customFetch(API_URLS.createRating(), {
+    method: 'POST',
+    body: {
+      user: userId, product: productId, star, review
+    }
+  });
+};
+
+export const updateRating = async (ratingId, star, review) => {
+  return customFetch(API_URLS.updateRating(), {
+    method: 'POST',
+    body: {
+      id: ratingId, star, review
+    }
+  });
+};
+
+export const deleteRating = async (ratingId) => {
+  return customFetch(API_URLS.deleteRating(ratingId), {
+    method: 'GET'
+  });
+};

@@ -80,7 +80,7 @@ function Address() {
 
   return (
     <div className="relative min-h-screen bg-white backdrop-blur flex flex-col items-start bg-texture bg-cover px-10 sm:py-0">
-      <h1 className="text-4xl text-gray-800">Your Addresses</h1>
+      <h1 className="text-3xl text-gray-800">Your Addresses</h1>
       <div className="relative w-full flex flex-wrap items-start">
         <Link to="/users/addresses/edit" className="max-w-[320px] min-w-[320px] max-h-[300px] min-h-[300px] flex flex-col bg-lightTeal text-gray-600 items-center justify-center border-2 m-4 border-dashed border-teal-900 rounded-xl">
           <FiPlus size={96} />

@@ -12,5 +12,9 @@ import EditProfile from "./EditProfile";
 import Order from "./Order";
 import Wishlist from "./Wishlist";
 import EditAddress from "./EditAddress";
+import Deals from "./Deals";
+import WhatsNew from "./WhatsNew";
+import SearchProduct from "./SearchProduct";
+import Category from "./Category";
 
-export { Checkout, EditProduct, Home, Page404, Product, Profile, Signin, Signup, Address, EditProfile, Order, Wishlist, EditAddress, ProductDtls };
+export { Checkout, EditProduct, Home, Page404, Product, Profile, Signin, Signup, Address, EditProfile, Order, Wishlist, EditAddress, ProductDtls, Deals, WhatsNew, SearchProduct, Category };
