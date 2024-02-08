@@ -27,6 +27,16 @@ module.exports = {
         },
         ".star.filled": {
           "color": "yellow",
+        },
+        ".hide-arrow": {
+          "&::-webkit-inner-spin-button": {
+            "-webkit-appearance": 'none',
+            "margin": "0"
+          },
+          '&::-webkit-outer-spin-button': {
+            "-webkit-appearance": 'none',
+            "margin": "0"
+          },
         }
       };
       addUtilities(newUtility);

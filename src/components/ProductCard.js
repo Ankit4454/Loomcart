@@ -3,18 +3,45 @@ import { Link } from 'react-router-dom';
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import Like from './Like';
 import { PiPlusThin, PiMinusThin } from "react-icons/pi";
+import CartButton from './CartButton';
+import { addCartItem, deleteCartItem, increment, decrement, cartSelector } from '../reducers/cartReducers';
+import { useDispatch, useSelector } from 'react-redux';
 
 function ProductCard(props) {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(cartSelector);
+  const [present, setPresent] = useState(false);
+  const [quantity, setQuantity] = useState(0);
   const [avgRating, setAvgRating] = useState('No Reviews');
   const { _id, name, price, picture, ratings } = props.product;
 
+  const handleAddCart = () => {
+    dispatch(addCartItem({ ...props.product, qty: 1 }));
+  }
+
+  const handleIncreaseQty = () => {
+    dispatch(increment(_id));
+  }
+
+  const handleDecreaseQty = () => {
+    dispatch(decrement(_id));
+  }
+
   useEffect(() => {
+    setPresent(cartItems.some(cart => cart._id === _id));
+    const foundItem = cartItems.find(cart => cart._id === _id);
+    if (foundItem) {
+      setQuantity(foundItem.qty);
+    } else {
+      setQuantity(0);
+    }
+
     if (ratings.length !== 0) {
       const totalStars = ratings.reduce((sum, rating) => sum + parseInt(rating.star), 0);
       const averageStars = totalStars / ratings.length;
       setAvgRating(averageStars.toFixed(1));
     }
-  }, [ratings]);
+  }, [cartItems, ratings, _id]);
 
   return (
     <div className="relative group">
@@ -66,11 +93,12 @@ function ProductCard(props) {
         </div>
         <div className="flex items-center justify-between">
           <p className="flex items-center mt-1 text-lg font-medium text-gray-900"><LiaRupeeSignSolid />{price}</p>
-          <div className="flex items-center">
-            <PiMinusThin className="mr-2 cursor-pointer" size={24} />
-            <p className="text-2xl">0</p>
-            <PiPlusThin className="ml-2 cursor-pointer" size={24} />
-          </div>
+          {!present && <div className="flex items-center"> <CartButton handleAddCart={handleAddCart} /></div>}
+          {present && <div className="flex items-center">
+            <PiMinusThin className="mr-2 cursor-pointer" size={24} onClick={handleDecreaseQty} />
+            <p className="text-xl">{quantity}</p>
+            <PiPlusThin className="ml-2 cursor-pointer" size={24} onClick={handleIncreaseQty} />
+          </div>}
         </div>
       </div>
     </div>

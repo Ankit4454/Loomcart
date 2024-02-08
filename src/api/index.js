@@ -198,3 +198,27 @@ export const deleteRating = async (ratingId) => {
     method: 'GET'
   });
 };
+
+export const createOrder = async (user, productList, address, status) => {
+  return customFetch(API_URLS.createOrder(), {
+    method: 'POST',
+    body: {
+      user, productList, address, status
+    }
+  });
+};
+
+export const updateOrder = async (orderId, status) => {
+  return customFetch(API_URLS.updateOrder(), {
+    method: 'POST',
+    body: {
+      id: orderId, status
+    }
+  });
+};
+
+export const getUsersOrders = async (user) => {
+  return customFetch(API_URLS.orders(user), {
+    method: 'GET'
+  });
+};

@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PiCaretDownThin } from "react-icons/pi";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from "../hooks";
+import { useSelector } from 'react-redux';
+import { cartSelector } from '../reducers/cartReducers';
 
 function Navbar(props) {
   const auth = useAuth();
+  const cartItems = useSelector(cartSelector);
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [isCategoryOpen, setCategoryOpen] = useState(false);
   const [isAccountOpen, setAccountOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
   const categoryOptions = [
     { optValue: 'Electronics', optText: 'Electronics' },
     { optValue: 'Fashion', optText: 'Fashion' },
@@ -46,6 +50,10 @@ function Navbar(props) {
       navigate('/');
     }
   }
+
+  useEffect(() => {
+    setCartCount(cartItems.length);
+  }, [cartItems.length]);
 
   return (<>
     <nav className="sticky top-0 left-0 right-0 z-50 px-10 py-4 flex justify-between items-center bg-white">
@@ -143,7 +151,7 @@ function Navbar(props) {
       </div>
       <button onClick={props.toggleCartBtn} className="hidden cursor-pointer relative lg:flex lg:items-center py-2 px-6 bg-teal-700 hover:bg-teal-800 text-sm text-white font-bold rounded-3xl transition duration-200">
         <MdShoppingCartCheckout className="mr-2" size={20} />
-        <span className="absolute bg-gray-900 text-gray-100 px-2 py-1 text-xs font-bold rounded-full -top-3 -right-2">2</span>
+        {cartCount !== 0 && <span className="absolute bg-gray-200 text-gray-900 px-2 py-1 text-xs font-bold rounded-full -top-3 -right-2">{cartCount}</span>}
         Cart
       </button>
     </nav>
@@ -176,7 +184,7 @@ function Navbar(props) {
                   {categoryOptions.map((cat) => (
                     <Link
                       className="block px-4 py-2 text-sm text-gray-800 hover:bg-teal-50 hover:text-teal-800"
-                      to={"/category/kids/" + cat.optValue} key={cat.optValue}
+                      to={"/category/" + cat.optValue} key={cat.optValue}
                     >
                       {cat.optText}
                     </Link>

@@ -23,4 +23,4 @@ const wishlistSlice = createSlice({
 
 export const wishlistReducer = wishlistSlice.reducer;
 export const { toggle } = wishlistSlice.actions;
-export const wishlistSelector = (state) => state.wishlistReducer.wishlist;
+export const wishlistSelector = (state) => state.wishlist.wishlist;

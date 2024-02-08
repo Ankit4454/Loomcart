@@ -8,5 +8,8 @@ import AddressCard from './AddressCard';
 import CategoryCard from './CategoryCard';
 import Like from './Like';
 import CartSidebar from './CartSidebar';
+import OrderCard from './OrderCard';
+import CartButton from './CartButton';
+import CheckoutCart from './CheckoutCart';
 
-export { App, Cart, Footer, Loader, Navbar, ProfileCard, AddressCard, CategoryCard, Like, CartSidebar };
+export { App, Cart, Footer, Loader, Navbar, ProfileCard, AddressCard, CategoryCard, Like, CartSidebar, OrderCard, CartButton, CheckoutCart };

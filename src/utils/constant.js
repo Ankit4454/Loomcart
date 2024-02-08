@@ -17,7 +17,7 @@ export const API_URLS = {
     createAddress: () => `${API_ROOT}/addresses/create`,
     updateAddress: () => `${API_ROOT}/addresses/update`,
     deleteAddress: (addressId) => `${API_ROOT}/addresses/delete/${addressId}`,
-    orders: (userId) => `${API_ROOT}/orders?userId=${userId}`,
+    orders: (user) => `${API_ROOT}/orders?user=${user}`,
     getOrder: (orderId) => `${API_ROOT}/orders/${orderId}`,
     createOrder: () => `${API_ROOT}/orders/create`,
     updateOrder: () => `${API_ROOT}/orders/update`,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import Loader from '../components/Loader';
 import { toast } from 'react-toastify';
@@ -8,11 +8,18 @@ import { useAuth } from "../hooks";
 import Like from '../components/Like';
 import { CiEdit } from "react-icons/ci";
 import { MdOutlineDeleteForever } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux';
+import { addCartItem, cartSelector, decrement, increment } from '../reducers/cartReducers';
+import { PiMinusThin, PiPlusThin } from 'react-icons/pi';
 
 function ProductDtls() {
   const auth = useAuth();
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const cartItems = useSelector(cartSelector);
+  const [present, setPresent] = useState(false);
+  const [quantity, setQuantity] = useState(0);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [addReview, setAddReview] = useState(false);
@@ -25,6 +32,19 @@ function ProductDtls() {
   const [ratingId, setRatingId] = useState(null);
   const [ratingList, setRatingList] = useState([]);
   const [avgRating, setAvgRating] = useState('No Reviews');
+
+  const handleAddCart = () => {
+    dispatch(addCartItem({ ...product, qty: 1 }));
+    navigate('/checkout');
+  }
+
+  const handleIncreaseQty = () => {
+    dispatch(increment(id));
+  }
+
+  const handleDecreaseQty = () => {
+    dispatch(decrement(id));
+  }
 
   const handleStarClick = (value) => {
     setStar(value);
@@ -123,7 +143,7 @@ function ProductDtls() {
         if (updatedRatingList.length !== 0) {
           const averageStars = totalStars / updatedRatingList.length;
           setAvgRating(averageStars.toFixed(1));
-        } else{
+        } else {
           setAvgRating('No Reviews');
         }
         return updatedRatingList;
@@ -155,6 +175,14 @@ function ProductDtls() {
               const averageStars = totalStars / response.data.product.ratings.length;
               setAvgRating(averageStars.toFixed(1));
             }
+
+            setPresent(cartItems.some(cart => cart._id === id));
+            const foundItem = cartItems.find(cart => cart._id === id);
+            if (foundItem) {
+              setQuantity(foundItem.qty);
+            } else {
+              setQuantity(0);
+            }
           } else {
             navigate(-1);
             return toast.error(response.message, {
@@ -177,7 +205,7 @@ function ProductDtls() {
       }
     }
     fetchData();
-  }, [auth.user, id, navigate]);
+  }, [auth.user, id, navigate, cartItems]);
 
   if (loading) {
     return <Loader />;
@@ -196,9 +224,14 @@ function ProductDtls() {
         <div className="absolute top-0 right-0">
           <Like />
         </div>
-        <div className="flex w-full my-6">
-          <button type="button" className="w-1/2 mr-6 flex items-center justify-center rounded-md border border-transparent bg-teal-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-800">Add to Cart</button>
-          <button type="button" className="w-1/2 flex items-center justify-center rounded-md border border-transparent bg-teal-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-800">Buy Now</button>
+        <div className="flex justify-between w-full my-6">
+          {!present && <button type="button" onClick={handleAddCart} className="w-1/2 mr-6 flex items-center justify-center rounded-md border border-transparent bg-teal-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-800">Add to Cart</button>}
+          {present && <div className="w-1/2 flex items-center justify-center">
+            <PiMinusThin className="mr-2 cursor-pointer" size={24} onClick={handleDecreaseQty} />
+            <p className="text-xl">{quantity}</p>
+            <PiPlusThin className="ml-2 cursor-pointer" size={24} onClick={handleIncreaseQty} />
+          </div>}
+          <Link to={`/checkout/${productId}`} className="w-1/2 flex items-center justify-center rounded-md border border-transparent bg-teal-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-800">Buy Now</Link>
         </div>
       </div>
       <div className="grid gap-4 md:gap-10 items-start max-h-[600px] overflow-y-scroll no-scrollbar">
