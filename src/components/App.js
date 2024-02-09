@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { Home, Signin, Signup, Profile, Page404, Checkout, Address, EditProfile, Order, Wishlist, EditAddress, Product, EditProduct, ProductDtls, Deals, WhatsNew, SearchProduct, Category } from '../pages';
+import { Home, Signin, Signup, Profile, Page404, Checkout, Address, EditProfile, Order, Wishlist, EditAddress, Product, EditProduct, ProductDtls, Deals, WhatsNew, SearchProduct, Category, ForgotPassword, ResetPassword } from '../pages';
 import '../styles/App.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -21,6 +21,9 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route exact path="/users/signin" element={<Signin />} />
+      <Route exact path="/users/signup" element={<Signup />} />
+      <Route exact path="/users/forgot-password" element={<ForgotPassword />} />
+      <Route exact path="/users/reset-password/:token" element={<ResetPassword />} />
       <Route exact path="/users/signup" element={<Signup />} />
       <Route exact path="/deals" element={<Deals />} />
       <Route exact path="/whatsnew" element={<WhatsNew />} />

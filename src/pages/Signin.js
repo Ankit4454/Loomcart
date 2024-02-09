@@ -94,7 +94,7 @@ return (
               <label htmlFor="password"
                 className="absolute left-0 -top-4 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-focus:-top-4 peer-focus:text-teal-700 peer-focus:text-sm">Password</label>
             </div>
-            <Link to="/users/forgotPassword" className="flex items-center justify-end text-sm font-semibold text-teal-700 hover:underline mt-4">Forgot password?</Link>
+            <Link to="/users/forgot-password" className="flex items-center justify-end text-sm font-semibold text-teal-700 hover:underline mt-4">Forgot password?</Link>
             <button type="submit" disabled={signingIn}
               className="w-full mt-8 py-4 text-lg text-white font-semibold text-center rounded-full bg-teal-700 transition-all hover:bg-teal-800 focus:outline-none">
                 {signingIn ? 'Signing In...' : 'Sign In'}

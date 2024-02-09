@@ -222,3 +222,21 @@ export const getUsersOrders = async (user) => {
     method: 'GET'
   });
 };
+
+export const sendResetPasswordLink = async (email) => {
+  return customFetch(API_URLS.sendResetPasswordLink(), {
+    method: 'POST',
+    body: {
+      email
+    }
+  });
+};
+
+export const resetPassword = async (token, password, confirmPassword) => {
+  return customFetch(API_URLS.resetPassword(), {
+    method: 'POST',
+    body: {
+      token, password, confirmPassword
+    }
+  });
+};

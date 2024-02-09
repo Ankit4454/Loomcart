@@ -25,6 +25,8 @@ export const API_URLS = {
     createRating: () => `${API_ROOT}/ratings/create`,
     updateRating: () => `${API_ROOT}/ratings/update`,
     deleteRating: (ratingId) => `${API_ROOT}/ratings/delete/${ratingId}`,
+    sendResetPasswordLink: () => `${API_ROOT}/users/sendResetPasswordLink`,
+    resetPassword: () => `${API_ROOT}/users/resetPassword`,
 }
 
 export const LOCALSTORAGE_TOKEN_KEY = '__loomcart_token__';

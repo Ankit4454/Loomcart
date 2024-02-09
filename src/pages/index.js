@@ -16,5 +16,7 @@ import Deals from "./Deals";
 import WhatsNew from "./WhatsNew";
 import SearchProduct from "./SearchProduct";
 import Category from "./Category";
+import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 
-export { Checkout, EditProduct, Home, Page404, Product, Profile, Signin, Signup, Address, EditProfile, Order, Wishlist, EditAddress, ProductDtls, Deals, WhatsNew, SearchProduct, Category };
+export { Checkout, EditProduct, Home, Page404, Product, Profile, Signin, Signup, Address, EditProfile, Order, Wishlist, EditAddress, ProductDtls, Deals, WhatsNew, SearchProduct, Category, ForgotPassword, ResetPassword };
