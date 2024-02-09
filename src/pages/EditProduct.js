@@ -183,6 +183,7 @@ function EditProduct() {
                 name="name"
                 id="name"
                 autoComplete="name"
+                maxLength={50}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -199,6 +200,7 @@ function EditProduct() {
                 name="description"
                 id="description"
                 autoComplete="description"
+                maxLength={150}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -211,13 +213,14 @@ function EditProduct() {
             </label>
             <div className="mt-2.5">
               <input
-                type="text"
+                type="number"
                 name="price"
                 id="price"
                 autoComplete="price"
+                maxLength={15}
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6 hide-arrow"
               />
             </div>
           </div>

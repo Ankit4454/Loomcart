@@ -30,7 +30,7 @@ function NewProductCard(props) {
             </Link>
             <div className="relative">
                 <div className="absolute top-0 right-0">
-                    <Like />
+                    <Like product={props.product} />
                 </div>
                 <h3 className="mt-4 text-lg text-gray-700">{name}</h3>
                 <h3 className="mt-4 text-sm text-gray-700">{description}</h3>

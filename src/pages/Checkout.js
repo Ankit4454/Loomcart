@@ -351,12 +351,13 @@ function Checkout() {
                             </label>
                             <div>
                               <input
-                                type="text"
+                                type="number"
                                 name="cardNumber"
                                 id="cardNumber"
+                                maxLength={20}
                                 value={cardNumber}
                                 onChange={(e) => setCardNumber(e.target.value)}
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6 hide-arrow"
                               />
                             </div>
                           </div>
@@ -369,6 +370,7 @@ function Checkout() {
                                 type="text"
                                 name="nameOnCard"
                                 id="nameOnCard"
+                                maxLength={50}
                                 value={nameOnCard}
                                 onChange={(e) => setNameOnCard(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -384,6 +386,7 @@ function Checkout() {
                                 type="text"
                                 name="expDate"
                                 id="expDate"
+                                maxLength={5}
                                 value={expDate}
                                 onChange={(e) => setExpDate(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -399,6 +402,7 @@ function Checkout() {
                                 type="number"
                                 name="cvc"
                                 id="cvc"
+                                maxLength={3}
                                 value={cvc}
                                 onChange={(e) => setCvc(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6 hide-arrow"
@@ -438,6 +442,7 @@ function Checkout() {
                                 type="text"
                                 name="upiId"
                                 id="upiId"
+                                maxLength={20}
                                 value={upiId}
                                 onChange={(e) => setUpiId(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"

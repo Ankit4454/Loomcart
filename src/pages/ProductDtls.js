@@ -222,7 +222,7 @@ function ProductDtls() {
           width={600}
         />
         <div className="absolute top-0 right-0">
-          <Like />
+          <Like product={product} />
         </div>
         <div className="flex justify-between w-full my-6">
           {!present && <button type="button" onClick={handleAddCart} className="w-1/2 mr-6 flex items-center justify-center rounded-md border border-transparent bg-teal-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-800">Add to Cart</button>}

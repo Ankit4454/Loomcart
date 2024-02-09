@@ -94,28 +94,28 @@ function Signup() {
             </div>
             <form method="POST" autoComplete="off" onSubmit={handleSubmit}>
               <div className="mt-10 relative">
-                <input id="name" name="name" type="text" value={name} onChange={(e) => setName(e.target.value)}
+                <input id="name" name="name" type="text" maxLength={50} value={name} onChange={(e) => setName(e.target.value)}
                   className="peer w-full px-0.5 border-0 bg-white border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                   placeholder="willPig@tailwind.com" required />
                 <label htmlFor="name"
                   className="absolute left-0 -top-4 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-focus:-top-4 peer-focus:text-teal-700 peer-focus:text-sm">Username</label>
               </div>
               <div className="mt-10 relative">
-                <input id="email" name="email" type="text" value={email} onChange={(e) => setEmail(e.target.value)}
+                <input id="email" name="email" type="text" maxLength={20} value={email} onChange={(e) => setEmail(e.target.value)}
                   className="peer w-full px-0.5 border-0 bg-white border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                   placeholder="willPig@tailwind.com" required />
                 <label htmlFor="email"
                   className="absolute left-0 -top-4 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-focus:-top-4 peer-focus:text-teal-700 peer-focus:text-sm">Email</label>
               </div>
               <div className="mt-10 relative">
-                <input id="mobileNumber" name="mobileNumber" type="text" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)}
+                <input id="mobileNumber" name="mobileNumber" maxLength={20} type="text" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)}
                   className="peer w-full px-0.5 border-0 bg-white border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                   placeholder="willPig@tailwind.com" required />
                 <label htmlFor="mobileNumber"
                   className="absolute left-0 -top-4 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-focus:-top-4 peer-focus:text-teal-700 peer-focus:text-sm">Mobile number</label>
               </div>
               <div className="mt-10 relative">
-                <input id="password" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}
+                <input id="password" type="password" name="password" maxLength={50} value={password} onChange={(e) => setPassword(e.target.value)}
                   className="peer w-full px-0.5 border-0 bg-white border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                   placeholder="Password" required />
                 <label htmlFor="password"

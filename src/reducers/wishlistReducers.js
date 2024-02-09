@@ -9,13 +9,13 @@ const wishlistSlice = createSlice({
     initialState: initialState,
     reducers: {
         toggle: (state, action) => {
-            const id = action.payload;
-            const index = state.wishlist.findIndex(item => item.id === id);
+            const { _id } = action.payload;
+            const index = state.wishlist.findIndex(item => item._id === _id);
 
             if (index !== -1) {
                 state.wishlist.splice(index, 1);
             } else {
-                state.wishlist.push({ id });
+                state.wishlist.push(action.payload);
             }
         }
     }

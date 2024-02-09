@@ -56,6 +56,10 @@ function Order() {
           <OrderCard key={order._id} order={order} />
         ))}
       </div>
+      {orders.length === 0 && <div className="w-full flex flex-col items-center">
+        <span className="text-gray-900 text-2xl">There are no orders show!</span>
+        <span className="text-gray-900 text-xl">Continue shopping.</span>
+      </div>}
     </div>
   )
 }

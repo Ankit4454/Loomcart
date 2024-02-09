@@ -153,6 +153,7 @@ function EditAddress() {
                                 name="name"
                                 id="name"
                                 autoComplete="name"
+                                maxLength={50}
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -169,6 +170,7 @@ function EditAddress() {
                                 name="mobileNumber"
                                 id="mobileNumber"
                                 autoComplete="mobileNumber"
+                                maxLength={20}
                                 value={mobileNumber}
                                 onChange={(e) => setMobileNumber(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -185,6 +187,7 @@ function EditAddress() {
                                 name="addressLine1"
                                 id="addressLine1"
                                 autoComplete="addressLine1"
+                                maxLength={100}
                                 value={addressLine1}
                                 onChange={(e) => setAddressLine1(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -201,6 +204,7 @@ function EditAddress() {
                                 name="addressLine2"
                                 id="addressLine2"
                                 autoComplete="addressLine2"
+                                maxLength={100}
                                 value={addressLine2}
                                 onChange={(e) => setAddressLine2(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -217,6 +221,7 @@ function EditAddress() {
                                 name="landmark"
                                 id="landmark"
                                 autoComplete="landmark"
+                                maxLength={50}
                                 value={landmark}
                                 onChange={(e) => setLandmark(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -229,13 +234,14 @@ function EditAddress() {
                         </label>
                         <div className="mt-2.5">
                             <input
-                                type="text"
+                                type="number"
                                 name="pincode"
                                 id="pincode"
                                 autoComplete="pincode"
+                                maxLength={6}
                                 value={pincode}
                                 onChange={(e) => setPincode(e.target.value)}
-                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6 hide-arrow"
                             />
                         </div>
                     </div>
@@ -249,6 +255,7 @@ function EditAddress() {
                                 name="city"
                                 id="city"
                                 autoComplete="city"
+                                maxLength={50}
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"
@@ -265,6 +272,7 @@ function EditAddress() {
                                 name="state"
                                 id="state"
                                 autoComplete="state"
+                                maxLength={50}
                                 value={state}
                                 onChange={(e) => setState(e.target.value)}
                                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-700 sm:text-sm sm:leading-6"

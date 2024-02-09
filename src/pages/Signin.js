@@ -81,14 +81,14 @@ return (
           </div>
           <form method="POST" autoComplete="off" onSubmit={handleSubmit}>
             <div className="mt-10 relative">
-              <input id="emailOrMobileNumber" name="emailOrMobileNumber" type="text" value={emailOrMobileNumber} onChange={(e) => setEmailOrMobileNumber(e.target.value)}
+              <input id="emailOrMobileNumber" name="emailOrMobileNumber" type="text" maxLength={20} value={emailOrMobileNumber} onChange={(e) => setEmailOrMobileNumber(e.target.value)}
                 className="peer w-full px-0.5 border-0 bg-white border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                 placeholder="willPig@tailwind.com" required />
               <label htmlFor="emailOrMobileNumber"
                 className="absolute left-0 -top-4 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-focus:-top-4 peer-focus:text-teal-700 peer-focus:text-sm">Email or mobile number</label>
             </div>
             <div className="mt-10 relative">
-              <input id="password" type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}
+              <input id="password" type="password" name="password" maxLength={50} value={password} onChange={(e) => setPassword(e.target.value)}
                 className="peer w-full px-0.5 border-0 bg-white border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                 placeholder="Password" required />
               <label htmlFor="password"
