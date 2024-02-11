@@ -9,7 +9,7 @@ function OrderCard(props) {
     const [saving, setSaving] = useState(false);
     const [updatedStatus, setUpdatedStatus] = useState(status);
     const [updatedStatusHistory, setUpdatedStatusHistory] = useState(statusHistory);
-    const total = productList.reduce((sum, product) => sum + parseInt(product.quantity * product.product.price), 0);
+    const total = productList.reduce((sum, product) => sum + parseInt(product.quantity * (product.product.discountPrice ? product.product.discountPrice : product.product.price)), 0);
 
     function formatTimestamp(timestamp) {
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -135,7 +135,8 @@ function OrderCard(props) {
                             <div>
                                 <div className="flex justify-between text-base font-medium text-gray-900">
                                     <h3>{product.product.name}</h3>
-                                    <p className="ml-4 flex items-center"><LiaRupeeSignSolid /> {product.product.price}</p>
+                                    { }
+                                    <p className="ml-4 flex items-center"><LiaRupeeSignSolid /> {product.product.discountPrice ? product.product.discountPrice : product.product.price}</p>
                                 </div>
                                 <p className="text-md">{product.product.description}</p>
                             </div>

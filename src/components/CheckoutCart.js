@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { PiPlusThin, PiMinusThin } from "react-icons/pi";
 
 function CheckoutCart(props) {
-    const { _id, picture, name, price, qty } = props.cart;
+    const { picture, name, price, discountPrice, qty } = props.cart;
 
     return (
         <li className="flex py-6">
@@ -19,7 +19,7 @@ function CheckoutCart(props) {
                 <div>
                     <div className="flex justify-between text-base font-medium text-gray-900">
                         <h3>{name}</h3>
-                        <p className="ml-4 flex items-center"><LiaRupeeSignSolid /> {price}</p>
+                        <p className="ml-4 flex items-center"><LiaRupeeSignSolid /> {discountPrice ? discountPrice : price}</p>
                     </div>
                 </div>
                 <div className="flex flex-1 items-end justify-between text-sm">

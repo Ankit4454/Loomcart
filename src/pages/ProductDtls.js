@@ -270,7 +270,13 @@ function ProductDtls() {
               </svg>
             )}
           </div>
-          <div className="flex items-center text-4xl font-bold"><LiaRupeeSignSolid /> {product.price}</div>
+          {product.discountPrice ? <div className="flex items-end text-4xl font-bold">
+            <LiaRupeeSignSolid />{product.discountPrice} <del className="text-sm ml-2">{product.price}</del>
+          </div>
+            :
+            <div className="flex items-end text-4xl font-bold">
+              <LiaRupeeSignSolid />{product.price}
+            </div>}
         </div>
         <div className="grid gap-4 md:gap-10">
           <div className="flex items-center justify-between">

@@ -29,7 +29,7 @@ function CartSidebar(props) {
 
     useEffect(() => {
         const newTotal = cartItems.reduce((acc, cart) => {
-            return acc + cart.price * cart.qty;
+            return acc + (cart.discountPrice ? cart.discountPrice : cart.price) * cart.qty;
         }, 0);
         setTotal(newTotal);
         // if (!props.open) {

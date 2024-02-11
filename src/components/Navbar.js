@@ -237,8 +237,8 @@ function Navbar(props) {
                 </div>
               )}
             </div>
-            <Link className="flex items-center justify-center px-4 py-3 mb-2 leading-loose text-xs text-white font-semibold bg-teal-700 hover:bg-teal-800 rounded-3xl"
-              to="/users/signup"><MdShoppingCartCheckout className="mr-2" size={20} /> Cart</Link>
+            <button className="flex w-full items-center justify-center px-4 py-3 mb-2 leading-loose text-xs text-white font-semibold bg-teal-700 hover:bg-teal-800 rounded-3xl"
+              onClick={props.toggleCartBtn}><MdShoppingCartCheckout className="mr-2" size={20} /> Cart</button>
           </div>
           <p className="my-4 text-xs text-center text-gray-400">
             <span>Copyright © 2024</span>

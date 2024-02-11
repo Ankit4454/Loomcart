@@ -61,7 +61,7 @@ function Checkout() {
     const transformedList = updatedList.map(cart => ({ product: cart._id, quantity: cart.qty }));
     setProductList(transformedList);
     const newTotal = updatedList.reduce((acc, cart) => {
-      return acc + cart.price * cart.qty;
+      return acc + (cart.discountPrice ? cart.discountPrice : cart.price) * cart.qty;
     }, 0);
     setTotal(newTotal);
   }
@@ -77,7 +77,7 @@ function Checkout() {
     const transformedList = updatedList.map(cart => ({ product: cart._id, quantity: cart.qty }));
     setProductList(transformedList);
     const newTotal = updatedList.reduce((acc, cart) => {
-      return acc + cart.price * cart.qty;
+      return acc + (cart.discountPrice ? cart.discountPrice : cart.price) * cart.qty;
     }, 0);
     setTotal(newTotal);
   }
@@ -88,7 +88,7 @@ function Checkout() {
     const transformedList = updatedList.map(cart => ({ product: cart._id, quantity: cart.qty }));
     setProductList(transformedList);
     const newTotal = updatedList.reduce((acc, cart) => {
-      return acc + cart.price * cart.qty;
+      return acc + (cart.discountPrice ? cart.discountPrice : cart.price) * cart.qty;
     }, 0);
     setTotal(newTotal);
     navigate(-1);
@@ -245,7 +245,7 @@ function Checkout() {
             setProductList([{ product: response.data.product._id, quantity: 1 }]);
 
             const newTotal = updatedList.reduce((acc, cart) => {
-              return acc + cart.price * cart.qty;
+              return acc + (cart.discountPrice ? cart.discountPrice : cart.price) * cart.qty;
             }, 0);
             if (newTotal !== 0) {
               setTotal(newTotal);
@@ -269,7 +269,7 @@ function Checkout() {
           const transformedList = cartItems.map(cart => ({ product: cart._id, quantity: cart.qty }));
           setProductList(transformedList);
           const newTotal = cartItems.reduce((acc, cart) => {
-            return acc + cart.price * cart.qty;
+            return acc + (cart.discountPrice ? cart.discountPrice : cart.price) * cart.qty;
           }, 0);
           if (newTotal !== 0) {
             setTotal(newTotal);

@@ -7,12 +7,34 @@ import { useAuth } from "../hooks";
 import { toast } from 'react-toastify';
 import Loader from '../components/Loader';
 import { deleteProduct, getUserProducts } from '../api';
+import { BsSortNumericDown, BsSortNumericDownAlt } from "react-icons/bs";
 
 function Product() {
   const auth = useAuth();
   const navigate = useNavigate();
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortBy, setSortBy] = useState('');
+
+  const sortProducts = (productList, sortOrder) => {
+    if (!sortOrder) {
+      return setProductList(productList);
+    }
+
+    const sortedProducts = [...productList];
+    sortedProducts.sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+    setProductList(sortedProducts);
+  };
+
+  const handleSort = (sortOrder) => {
+    setSortBy(sortOrder);
+  };
 
   const handleDeleteProduct = async (productId) => {
     const response = await deleteProduct(productId);
@@ -49,7 +71,7 @@ function Product() {
         if (auth.user) {
           const response = await getUserProducts(auth.user._id);
           if (response.success) {
-            setProductList(response.data.products);
+            sortProducts(response.data.products, sortBy);
           } else {
             toast.error(response.message, {
               position: "top-right",
@@ -72,7 +94,7 @@ function Product() {
       }
     }
     fetchData();
-  }, [auth.user, navigate]);
+  }, [auth.user, navigate, sortBy]);
 
   if (loading) {
     return <Loader />
@@ -87,6 +109,11 @@ function Product() {
           <h1 className="text-2xl">Add a new product</h1>
         </Link>
       </div>
+      {productList.length !== 0 && <div className="flex items-center justify-end my-4">
+        <p className="text-lg text-gray-900 mr-2">Sort by</p>
+        <button onClick={() => handleSort('asc')} className="flex items-center bg-teal-700 hover:bg-teal-800 text-white py-2 px-6 rounded-3xl mr-2">Price - Low to High <BsSortNumericDown className="ml-2" size={24} /></button>
+        <button onClick={() => handleSort('desc')} className="flex items-center bg-teal-700 hover:bg-teal-800 text-white py-2 px-6 rounded-3xl">Price - High to Low <BsSortNumericDownAlt className="ml-2" size={24} /></button>
+      </div>}
       <div className="py-8 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {productList.map((product) => (
           <NewProductCard key={product._id} product={product} handleDeleteProduct={handleDeleteProduct} />

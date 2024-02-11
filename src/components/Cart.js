@@ -7,7 +7,7 @@ import { cartSelector, decrement, deleteCartItem, increment } from '../reducers/
 function Cart(props) {
   const dispatch = useDispatch();
   const cartItems = useSelector(cartSelector);
-  const { _id, picture, name, price } = props.cart;
+  const { _id, picture, name, price, discountPrice } = props.cart;
   const [quantity, setQuantity] = useState();
 
   const handleDeleteCart = () => {
@@ -45,7 +45,7 @@ function Cart(props) {
         <div>
           <div className="flex justify-between text-base font-medium text-gray-900">
             <h3>{name}</h3>
-            <p className="ml-4 flex items-center"><LiaRupeeSignSolid /> {price}</p>
+            <p className="ml-4 flex items-center"><LiaRupeeSignSolid /> {discountPrice ? discountPrice : price}</p>
           </div>
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">

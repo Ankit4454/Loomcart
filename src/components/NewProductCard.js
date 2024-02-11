@@ -7,7 +7,7 @@ import Like from './Like';
 
 function NewProductCard(props) {
     const [avgRating, setAvgRating] = useState('No Reviews');
-    const { _id, name, description, price, category, ratings, picture } = props.product;
+    const { _id, name, description, price, discountPrice, ratings, picture } = props.product;
 
     useEffect(() => {
         if (ratings.length !== 0) {
@@ -24,6 +24,7 @@ function NewProductCard(props) {
                     <img
                         src={picture}
                         alt={name}
+                        loading="lazy"
                         className="h-full w-full object-contain object-center mix-blend-multiply group-hover:opacity-75"
                     />
                 </div>
@@ -67,7 +68,13 @@ function NewProductCard(props) {
                     )}
                 </div>
                 <div className="flex items-center justify-between">
-                    <p className="flex items-center mt-1 text-lg font-medium text-gray-900"><LiaRupeeSignSolid />{price}</p>
+                    {discountPrice ? <p className="flex items-center mt-1 text-lg font-medium text-gray-900">
+                        <LiaRupeeSignSolid />{discountPrice} <del className="text-sm ml-2">{price}</del>
+                    </p>
+                        :
+                        <p className="flex items-center mt-1 text-lg font-medium text-gray-900">
+                            <LiaRupeeSignSolid />{price}
+                        </p>}
                     <div className="mt-4 flex items-center text-gray-800">
                         <Link className="mr-2" to={"/users/product/edit/" + _id}><MdRebaseEdit size={28} /></Link>
                         |

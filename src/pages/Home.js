@@ -1,41 +1,44 @@
 import React from 'react';
-import home from '../images/home.jpg';
 import CategoryCard from '../components/CategoryCard';
-import { FcElectronics, FcBusiness, FcSportsMode   } from "react-icons/fc";
-import { SiAirtable } from "react-icons/si";
-import { GiClothesline } from "react-icons/gi";
+import home from '../images/home.jpg';
+import electronics from '../images/electronics.png';
+import travel from '../images/travel.png';
+import furniture from '../images/furniture.png';
+import fashion from '../images/fashion.png';
+import sports from '../images/sports.png';
+import beauty from '../images/beauty.png';
 
 function Home() {
   const category = [
     {
-      name: 'Electronic',
-      svg: <FcElectronics size={80} />,
-      link: '/category/fashion'
+      name: 'Electronics',
+      img: <img src={electronics} alt='Electronics' width={100} />,
+      link: '/category/Electronics'
     },
     {
       name: 'Travel',
-      svg: <FcBusiness  size={80} />,
-      link: '/category/fashion'
+      img: <img src={travel} alt='Travel' width={100} />,
+      link: '/category/Travel and Luggage'
     },
     {
       name: 'Furniture',
-      svg: <SiAirtable size={80} />,
-      link: '/category/fashion'
+      img: <img src={furniture} alt='Furniture' width={100} />,
+      link: '/category/Home and Furniture'
     },
     {
       name: 'Fashion',
-      svg: <GiClothesline size={80} />,
-      link: '/category/fashion'
+      img: <img src={fashion} alt='Fashion' width={90} />,
+      link: '/category/Fashion'
     },
     {
       name: 'Sports',
-      svg: <FcSportsMode  size={80} />,
-      link: '/category/fashion'
+      img: <img src={sports} alt='Sports' width={100} />,
+      link: '/category/Sports and Outdoors'
     },
     {
       name: 'Beauty',
-      svg: <FcElectronics size={80} />,
-      link: '/category/fashion'
+      img: <img src={beauty} alt='Beauty' width={95} />,
+      link: '/category/Beauty and Personal Care'
     },
   ];
 
@@ -56,7 +59,7 @@ function Home() {
         <div className="flex flex-col">
           <h1 className="pt-10 text-2xl font-bold text-gray-800">Shop Our Top Categories</h1>
           <div className="flex flex-wrap py-6 items-center justify-between gap-5">
-            {category.map((cat)=>(
+            {category.map((cat) => (
               <CategoryCard key={cat.name} category={cat} />
             ))}
           </div>

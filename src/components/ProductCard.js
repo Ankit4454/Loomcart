@@ -13,7 +13,7 @@ function ProductCard(props) {
   const [present, setPresent] = useState(false);
   const [quantity, setQuantity] = useState(0);
   const [avgRating, setAvgRating] = useState('No Reviews');
-  const { _id, name, price, picture, ratings } = props.product;
+  const { _id, name, price, picture, ratings, discountPrice } = props.product;
 
   const handleAddCart = () => {
     dispatch(addCartItem({ ...props.product, qty: 1 }));
@@ -50,6 +50,7 @@ function ProductCard(props) {
           <img
             src={picture}
             alt={name}
+            loading="lazy"
             className="h-full w-full object-contain object-center mix-blend-multiply group-hover:opacity-75"
           />
         </div>
@@ -92,7 +93,18 @@ function ProductCard(props) {
           )}
         </div>
         <div className="flex items-center justify-between">
-          <p className="flex items-center mt-1 text-lg font-medium text-gray-900"><LiaRupeeSignSolid />{price}</p>
+          {discountPrice !== undefined ? (
+            <div>
+              <p className="flex items-center mt-1 text-lg font-medium text-gray-500">
+                <LiaRupeeSignSolid />{discountPrice} <del className="text-xs ml-2">{price}</del>
+              </p>
+            </div>
+          ) : (
+            <p className="flex items-center mt-1 text-lg font-medium text-gray-900">
+              <LiaRupeeSignSolid />{price}
+            </p>
+          )}
+
           {!present && <div className="flex items-center"> <CartButton handleAddCart={handleAddCart} /></div>}
           {present && <div className="flex items-center">
             <PiMinusThin className="mr-2 cursor-pointer" size={24} onClick={handleDecreaseQty} />
