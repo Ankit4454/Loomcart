@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+<img src="https://github.com/Ankit4454/Loomcart/assets/53224332/319f2d8e-871a-440a-960f-996371384b0a" alt="Loomcart" width="200"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Loomcart: A modern React-based eCommerce frontend, crafted for seamless user experiences. Empowered by Redux, it ensures efficient state management, delivering a smooth shopping journey. #eCommerce #React #Redux
+## Screenshots
 
-## Available Scripts
+![loomcart vercel app_](https://github.com/Ankit4454/Loomcart/assets/53224332/80024e0c-6b73-49f9-b650-4ce4e7cb2f2d)
 
-In the project directory, you can run:
+![loomcart vercel app_products_65bb502759e615c310231fd7](https://github.com/Ankit4454/Loomcart/assets/53224332/fffbd1b9-2b5d-4b37-a0dc-1d24e638861a)
 
-### `npm start`
+![loomcart order](https://github.com/Ankit4454/Loomcart/assets/53224332/cde986be-4d24-4fdf-ab37-3e22e99297bc)
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clone the project and run following commands.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+  cd Loomcart
+  npm install
+  npm start
+```
+Start the server at http://localhost:8000.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![react](https://shields.io/badge/react-black?logo=react&style=for-the-badge)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![tailwindcss](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Shopping Cart Management: Users can add, remove, and update items in their shopping cart seamlessly.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Order Management: Streamlined process for users to place, track, and manage their orders efficiently.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Product Catalog: Comprehensive catalog showcasing a variety of products with detailed descriptions and images.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Rating & Reviews: Users can rate and review products, providing valuable feedback to other shoppers.
 
-## Learn More
+- Wishlist: Allows users to save products for future purchase or reference, enhancing the shopping experience.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Address Management: Users can manage multiple shipping addresses, making checkout more convenient.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Responsive Design: Ensures a seamless shopping experience across devices, including desktops, tablets, and mobile phones.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Search & Filter: Robust search and filtering options enable users to quickly find products based on their preferences.
