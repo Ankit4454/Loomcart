@@ -1,4 +1,4 @@
-<img src="https://github.com/Ankit4454/Loomcart/assets/53224332/319f2d8e-871a-440a-960f-996371384b0a" alt="Loomcart" width="200"/>
+<img src="https://github.com/Ankit4454/Loomcart/assets/53224332/4b4f76b4-1a85-4f51-8d67-7fcb89a3de4a" alt="Loomcart" width="200"/>
 
 Loomcart: A modern React-based eCommerce frontend, crafted for seamless user experiences. Empowered by Redux, it ensures efficient state management, delivering a smooth shopping journey. #eCommerce #React #Redux
 ## Screenshots
