@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { PiCaretDownThin } from "react-icons/pi";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { IoPersonOutline } from "react-icons/io5";
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from "../hooks";
 import { useSelector } from 'react-redux';
 import { cartSelector } from '../reducers/cartReducers';
