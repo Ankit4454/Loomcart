@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { PiCaretDownThin } from "react-icons/pi";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { IoPersonOutline } from "react-icons/io5";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from "../hooks";
 import { useSelector } from 'react-redux';
 import { cartSelector } from '../reducers/cartReducers';
+import logo from '../images/logo.png';
 
 function Navbar(props) {
   const auth = useAuth();
   const cartItems = useSelector(cartSelector);
   const navigate = useNavigate();
+  const location = useLocation();
   const [search, setSearch] = useState('');
   const [isCategoryOpen, setCategoryOpen] = useState(false);
   const [isAccountOpen, setAccountOpen] = useState(false);
@@ -58,7 +60,7 @@ function Navbar(props) {
   return (<>
     <nav className="sticky top-0 left-0 right-0 z-50 px-10 py-4 flex justify-between items-center bg-white">
       <Link className="text-3xl font-bold text-teal-800 mr-4 leading-none" to="/">
-        loomcart
+        <img src={logo} alt='loomcart' width={150} />
       </Link>
       <ul
         className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
@@ -92,7 +94,7 @@ function Navbar(props) {
               d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
           </svg>
         </li>
-        <li><Link className="text-sm text-gray-400 hover:text-gray-500 navbar-link" to="/deals">Deals</Link></li>
+        <li><Link className={`${location.pathname.includes("/deals") ? 'flex items-center text-sm text-teal-800 font-bold navbar-link group-hover:text-teal-700' : 'text-sm text-gray-400 hover:text-gray-500 navbar-link'}`} to="/deals">Deals</Link></li>
         <li className="text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill"
             viewBox="0 0 24 24">
@@ -100,7 +102,7 @@ function Navbar(props) {
               d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
           </svg>
         </li>
-        <li><Link className="text-sm text-gray-400 hover:text-gray-500 navbar-link" to="/whatsnew">What's New</Link></li>
+        <li><Link className={`${location.pathname.includes("/whatsnew") ? 'flex items-center text-sm text-teal-800 font-bold navbar-link group-hover:text-teal-700' : 'text-sm text-gray-400 hover:text-gray-500 navbar-link'}`} to="/whatsnew">What's New</Link></li>
       </ul>
       <form method="GET" onSubmit={handleSearch} className="rounded-3xl bg-gray-200 overflow-hidden mx-4 flex lg:w-1/4 md:w-1/3">
         <input name="search" id="search" value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="px-4 py-2 bg-gray-200 w-full outline-none" placeholder="Search Product" />

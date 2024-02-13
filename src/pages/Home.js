@@ -1,14 +1,16 @@
 import React from 'react';
 import CategoryCard from '../components/CategoryCard';
-import home from '../images/home.jpg';
+import home from '../images/home.png';
 import electronics from '../images/electronics.png';
 import travel from '../images/travel.png';
 import furniture from '../images/furniture.png';
 import fashion from '../images/fashion.png';
 import sports from '../images/sports.png';
 import beauty from '../images/beauty.png';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate();
   const category = [
     {
       name: 'Electronics',
@@ -48,9 +50,9 @@ function Home() {
         <img src={home} alt="Home page" className="w-full" />
         <div className="absolute inset-0 flex px-10">
           <div className="relative flex flex-col items-start justify-center text-white">
-            <h1 className="text-4xl font-bold mb-4">Discover Your Perfect Products</h1>
-            <p className="text-lg mb-6">Explore a wide range of products curated just for you.</p>
-            <button className="bg-teal-700 text-white py-2 px-6 rounded-3xl hover:bg-teal-800">Learn More</button>
+            <h1 className="font-bold mb-4 sm:text-xl md:text-4xl lg:text-5xl">Discover Your Perfect Products</h1>
+            <p className="mb-6 sm:text-sm md:text-lg lg:text-xl">Explore a wide range of products curated just for you.</p>
+            <button onClick={() => navigate('/whatsnew')} className="bg-teal-700 text-white py-2 px-6 rounded-3xl hover:bg-teal-800">Learn More</button>
           </div>
         </div>
       </div>

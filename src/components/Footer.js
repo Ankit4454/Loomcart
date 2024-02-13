@@ -6,7 +6,7 @@ function Footer() {
       <div className="px-10 py-12 mx-auto">
         <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
           <div className="col-span-3">
-            <a href="/" className="text-xl font-black leading-none text-gray-900 select-none logo">loomcart</a>
+            <a href="/" className="text-xl font-black leading-none text-gray-900 select-none logo">Loomcart</a>
           </div>
           <nav className="col-span-1 md:col-span-1 lg:col-span-2">
             <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">Product</p>

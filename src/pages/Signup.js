@@ -101,7 +101,7 @@ function Signup() {
                   className="absolute left-0 -top-4 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-focus:-top-4 peer-focus:text-teal-700 peer-focus:text-sm">Username</label>
               </div>
               <div className="mt-10 relative">
-                <input id="email" name="email" type="text" maxLength={20} value={email} onChange={(e) => setEmail(e.target.value)}
+                <input id="email" name="email" type="text" maxLength={50} value={email} onChange={(e) => setEmail(e.target.value)}
                   className="peer w-full px-0.5 border-0 bg-white border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                   placeholder="willPig@tailwind.com" required />
                 <label htmlFor="email"

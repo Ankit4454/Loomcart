@@ -81,7 +81,7 @@ return (
           </div>
           <form method="POST" autoComplete="off" onSubmit={handleSubmit}>
             <div className="mt-10 relative">
-              <input id="emailOrMobileNumber" name="emailOrMobileNumber" type="text" maxLength={20} value={emailOrMobileNumber} onChange={(e) => setEmailOrMobileNumber(e.target.value)}
+              <input id="emailOrMobileNumber" name="emailOrMobileNumber" type="text" maxLength={50} value={emailOrMobileNumber} onChange={(e) => setEmailOrMobileNumber(e.target.value)}
                 className="peer w-full px-0.5 border-0 bg-white border-b-2 border-gray-300 placeholder-transparent focus:ring-0 focus:border-teal-700 focus:outline-none"
                 placeholder="willPig@tailwind.com" required />
               <label htmlFor="emailOrMobileNumber"
